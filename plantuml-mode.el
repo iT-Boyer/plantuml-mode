@@ -426,7 +426,8 @@ Put the result into buffer BUF.  Window is selected according to PREFIX:
   "Encode the string STRING into a URL suitable for PlantUML server interactions."
   (let* ((coding-system (or buffer-file-coding-system
                             "utf8"))
-         (encoded-string (base64-encode-string (encode-coding-string string coding-system) t)))
+         ;(encoded-string (base64-encode-string (encode-coding-string string coding-system) t)))
+         (encoded-string (base64-encode-string  string t)))
     (concat plantuml-server-url "/" plantuml-output-type "/-base64-" encoded-string)))
 
 (defun plantuml-server-preview-string (prefix string buf)
